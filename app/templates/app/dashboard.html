@@ -1,0 +1,40 @@
+{% extends 'app/base.html '%}
+{% block content %}
+{% block title %}| Dashboard{% endblock %}
+
+  <section id="dashboard" class="py-4">
+    <div class="container">
+      {% include 'app/alert.html' %}
+      <div class="row">
+        <div class="col-md-12">
+          <h2>Welcome {{user.username}}</h2>
+          <p>Here are the property listings that you have inquired about</p>
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Property</th>
+                <th></th>
+              </tr>
+            </thead>
+            {% if contacts %}
+            {% for contact in contacts %}
+            <tbody>
+              <tr>
+                <td>{{contact.listing_id}}</td>
+                <td>{{contact.listing}}</td>
+                <td>
+                  <a class="btn btn-light" href="{% url 'listing' contact.listing_id %}">View Listing</a>
+                </td>
+              </tr>
+            </tbody>
+            {% endfor %}
+            {% else %}
+            <p class="alert alert-danger">No inquires has been made yet </p>
+            {% endif %}
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock content %}

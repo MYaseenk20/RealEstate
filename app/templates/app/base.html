@@ -1,0 +1,39 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'css/all.css'%}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap.css'%}">
+    <link rel="stylesheet" href="{% static 'css/lightbox.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/style.css'%}">
+
+    <title>Real state {% block title %}{% endblock %}</title>
+  </head>
+    {% include 'app/navbar.html' %}
+    {%  block content %}
+
+    {% endblock content %}
+  <footer id="main-footer" class="py-4 bg-primary text-white text-center">
+    Copyright &copy;
+    <span class="year"></span> BT Real Estate
+  </footer>
+
+<script src="{% static 'js/main.js' %}"></script>
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/lightbox.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.bundle.min.js' %}"></script>
+<script>
+        setTimeout(function(){
+        $('#message').fadeOut('slow');
+       },3000);
+</script>
+
+
+</body>
+</html>
