@@ -12,7 +12,7 @@ from django.core.mail import send_mail
 
 # main home page
 def home(request):
-    listings=Listings.objects.order_by('-publish_date').filter(public=True)
+    listings=Listings.objects.order_by('-publish_date').filter(public=True)[:3]
     context={'listings':listings,'price_choices':price_choices,'bedroom_choices':bedroom_choices,'state_choices':state_choices}
     return render(request,'app/index.html',context)
 
@@ -88,7 +88,7 @@ def search(request):
     if 'keywords' in request.GET:
         keyword=request.GET['keywords']
         if keyword:
-            qureylist=qureylist.filter(zipcode__icontains=keyword)
+            qureylist=qureylist.filter(address__icontains=keyword)
     if 'state' in request.GET:
         state=request.GET['state']
         if state:

@@ -19,6 +19,8 @@ class Listings(models.Model):
     state=models.CharField(max_length=200,blank=True)
     zipcode=models.IntegerField()
     price=models.CharField(max_length=200,null=True,blank=True)
+    description=models.TextField(null=True,blank=True)
+
     bedrooms=models.IntegerField()
     bathroom=models.IntegerField()
     Sqft=models.IntegerField()
